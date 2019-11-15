@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import Meal from "./components/Meal";
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      meals: ""
+      meals: []
     }
   }
   componentDidMount() {
@@ -21,10 +21,19 @@ class App extends Component {
       })
   }
   render() {
-    let meals = this.state.meals
+    const meals = this.state.meals
+    .map((key, index) => (
+      <Meal
+        name={ key.mealName }
+        image={ key.image }
+        id={ key.id }
+        key={ index }
+      />
+    ))
+
     return (
       <div className="App">
-        {/* <div>{ meals }</div> */}
+        <div className="meals">{ meals }</div>
       </div>
     )
   }
