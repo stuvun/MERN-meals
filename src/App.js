@@ -10,7 +10,7 @@ class App extends Component {
     }
   }
   componentDidMount() {
-    fetch("https://stuvun-meals-api.herokuapp.com/")
+    fetch("http://localhost:8080")
       .then(res => res.json())
       .then(res => {
         console.log(res, "Success");
@@ -23,7 +23,9 @@ class App extends Component {
   render() {
     let meals = this.state.meals
     return (
-      <h1>{ meals }</h1>
+      <div className="App">
+        {/* <div>{ meals }</div> */}
+      </div>
     )
   }
 }
