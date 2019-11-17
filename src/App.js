@@ -6,7 +6,7 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      meals: []
+      mealsArray: []
     }
   }
   componentDidMount() {
@@ -14,27 +14,31 @@ class App extends Component {
       .then(res => res.json())
       .then(res => {
         console.log(res, "Success");
-        this.setState({ meals: res })
+        this.setState({ mealsArray: res })
       })
       .catch(err => {
         console.log(err, "Something's wrong")
       })
   }
   render() {
-    const meals = this.state.meals
-    .map((key, index) => (
-      <Meal
-        name={ key.mealName }
-        image={ key.image }
-        id={ key.id }
-        key={ index }
-      />
-    ))
+    const meals = this.state.mealsArray
 
     return (
       <div className="App">
-        <div className="meals">{ meals }</div>
-        <Meal />
+        <div className="meal">
+          { meals.map(item => {
+            console.log(item.meal)
+            return(
+              <Meal
+              key={ item.meal[0]._id }
+              name={ item.meal[0].mealName }
+              image={ item.meal[0].image }
+              id={ item.meal[0].id }
+            />
+            )
+            
+          }) }
+        </div>
       </div>
     )
   }

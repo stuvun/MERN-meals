@@ -7,6 +7,8 @@ class Meal extends Component {
     }
 
     render() {
+        let ids = this.props.id
+        console.log(ids)
         return (
             <div className="meal">
                 <h1>{ this.props.name }</h1>
