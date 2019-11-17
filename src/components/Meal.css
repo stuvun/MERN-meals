@@ -2,4 +2,62 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
+    border: 2px solid black;
+    width: 80vw;
+    margin: 50px auto;
+    padding: 5vw;
+    font-size: 2vw;
+}
+
+.mealCard {
+    display: flex;
+    flex-direction: row;
+}
+
+.mealImage {
+    width: 40vw;
+    margin: 2vw;
+}
+
+h2 {
+    margin: 1vw 0 1vw 0;
+}
+
+.measureIn {
+    display: flex;
+    flex-direction: row;
+}
+
+.ingredients {
+    text-align: left;
+}
+
+.listContainer {
+    padding-right: 1vw;
+    font-size: 1.5vw;
+}
+
+.ingredientList {
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+li {
+    border: 1px solid black;
+    margin-bottom: -1px;
+    padding: 0.5vw;
+}
+
+.measurementItem {
+    width: 15vw;
+}
+
+.ingredientItem {
+    width: 25vw;
 }
