@@ -1,3 +1,19 @@
+* {
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
 body {
+  display: block;
+  width: 100vw;
   margin: 0 auto;
+  overflow-y: hidden;
+}
+
+.navbar {
+  background-color: rgb(204, 234, 255);
+}
+
+.form-inline {
+  margin-right: 1%;
 }

@@ -11,14 +11,14 @@ class Mealdata extends Component {
 
     componentDidMount() {
         fetch("http://localhost:8080")
-        .then(res => res.json())
-        .then(res => {
-            console.log(res, "Success");
-            this.setState({ mealsArray: res })
-        })
-        .catch(err => {
-            console.log(err, "Something's wrong")
-        })
+            .then(res => res.json())
+            .then(res => {
+                console.log(res, "Success");
+                this.setState({ mealsArray: res })
+            })
+            .catch(err => {
+                console.log(err, "Something's wrong")
+            })
     }
 
     render() {

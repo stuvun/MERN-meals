@@ -1,15 +1,49 @@
 import React, { Component } from "react";
 import { Link, Route } from "react-router-dom"
+import axios from "axios";
 import "./App.css";
-import Mealdata from "./components/Mealdata";
-import Home from "./components/Home";
+import Mealdata from "./components/Meal/Mealdata";
+import Home from "./components/Home/Home";
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      id: "",
+      name: "",
+      image: "",
+      measurements: [],
+      ingredients: []
+    }
+  }
+  handleSubmit = e => {
+    axios
+      .post("http://localhost:8080/recipes", {
+        name: this.state.name,
+        image: this.state.image,
+        measurements: this.state.measurements,
+        ingredients: this.state.ingredients
+      })
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => console.log(err));
+  };
+
+  handleChange = e => {
+    e.preventDefault();
+    this.setState({ [e.target.name]: e.target.value });
+    console.log(this.state.name);
+    console.log(this.state.image);
+    console.log(this.state.measurements);
+    console.log(this.state.ingredients)
+  };
+
   render() {
     return (
       <div className="App">
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <nav className="navbar-brand" href="#">Navbar</nav>
+        <nav className="navbar navbar-expand-lg navbar-light">
+          <nav className="nav-link navbar-brand" href="#">Recipes</nav>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -23,7 +57,7 @@ class App extends Component {
               </Link>
               <Link to="/meals">
                 <li className="nav-item">
-                  <nav className="nav-link" href="#">Meals</nav>
+                  <nav className="nav-link" href="#">All Meals</nav>
                 </li>
               </Link>
             </ul>
