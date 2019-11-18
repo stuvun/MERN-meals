@@ -10,20 +10,18 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      id: "",
-      name: "",
-      image: "",
-      measurements: [],
-      ingredients: []
+      name: ""
     }
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+    this.handleInput = this.handleInput.bind(this)
   }
+  
   handleSubmit = e => {
+    e.preventDefault();
     axios
-      .post("http://localhost:8080/recipes", {
-        name: this.state.name,
-        image: this.state.image,
-        measurements: this.state.measurements,
-        ingredients: this.state.ingredients
+      .post("http://localhost:8080/meals/:name", {
+        name: this.state.name
       })
       .then(res => {
         console.log(res);
@@ -34,11 +32,13 @@ class App extends Component {
   handleChange = e => {
     e.preventDefault();
     this.setState({ [e.target.name]: e.target.value });
-    console.log(this.state.name);
-    console.log(this.state.image);
-    console.log(this.state.measurements);
-    console.log(this.state.ingredients)
+    console.log(this.state.name)
   };
+  
+  handleInput = e => {
+    e.preventDefault();
+    console.log({ [e.target.name]: e.target.value })
+  }
 
   render() {
     return (
@@ -62,8 +62,8 @@ class App extends Component {
                 </li>
               </Link>
             </ul>
-            <form className="form-inline my-2 my-lg-0">
-              <input className="form-control mr-sm-2" type="search" placeholder="Search" />
+            <form className="form-inline my-2 my-lg-0" type="form">
+              <input className="form-control mr-sm-2" type="search" placeholder="Search"/>
               <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
           </div>
@@ -74,7 +74,7 @@ class App extends Component {
         <Route path="/meals"
           exact component={ Mealsdata }>
         </Route>
-        <Route path="/meals/:ids"
+        <Route path="/meals/:name"
           exact component={ Singlemeal }>
         </Route>
       </div>

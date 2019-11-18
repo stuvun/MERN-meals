@@ -10,11 +10,11 @@ class Singlemeal extends Component {
     }
 
     componentDidMount() {
-        fetch("http://localhost:8080/meals/:ids")
+        fetch("http://localhost:8080/meals/Chicken Enchilada Casserole")
             .then(res => res.json())
             .then(res => {
                 console.log(res, "Success");
-                this.setState({ mealArray: res.meal })
+                this.setState({ mealArray: res })
             })
             .catch(err => {
                 console.log(err, "Something's wrong")
@@ -29,60 +29,60 @@ class Singlemeal extends Component {
                 { mealArray.map((item, index) => {
                     return (
                         <Meals className="meal"
-                            id={ item.id }
-                            name={ item.mealName }
-                            category={ item.category }
-                            area={ item.area }
-                            instructions={ item.instructions }
-                            image={ item.image }
-                            tags={ item.tags }
-                            video={ item.video }
+                            id={ item.meal[0].id }
+                            name={ item.meal[0].mealName }
+                            category={ item.meal[0].category }
+                            area={ item.meal[0].area }
+                            instructions={ item.meal[0].instructions }
+                            image={ item.meal[0].image }
+                            tags={ item.meal[0].tags }
+                            video={ item.meal[0].video }
                             ingredients={[
-                                item.ingredient1,
-                                item.ingredient2,
-                                item.ingredient3,
-                                item.ingredient4,
-                                item.ingredient5,
-                                item.ingredient6,
-                                item.ingredient7,
-                                item.ingredient8,
-                                item.ingredient9,
-                                item.ingredient10,
-                                item.ingredient11,
-                                item.ingredient12,
-                                item.ingredient13,
-                                item.ingredient14,
-                                item.ingredient15,
-                                item.ingredient16,
-                                item.ingredient17,
-                                item.ingredient18,
-                                item.ingredient19,
-                                item.ingredient20
+                                item.meal[0].ingredient1,
+                                item.meal[0].ingredient2,
+                                item.meal[0].ingredient3,
+                                item.meal[0].ingredient4,
+                                item.meal[0].ingredient5,
+                                item.meal[0].ingredient6,
+                                item.meal[0].ingredient7,
+                                item.meal[0].ingredient8,
+                                item.meal[0].ingredient9,
+                                item.meal[0].ingredient10,
+                                item.meal[0].ingredient11,
+                                item.meal[0].ingredient12,
+                                item.meal[0].ingredient13,
+                                item.meal[0].ingredient14,
+                                item.meal[0].ingredient15,
+                                item.meal[0].ingredient16,
+                                item.meal[0].ingredient17,
+                                item.meal[0].ingredient18,
+                                item.meal[0].ingredient19,
+                                item.meal[0].ingredient20
                             ]}
                             measurements={[
-                                item.measurement1,
-                                item.measurement2,
-                                item.measurement3,
-                                item.measurement4,
-                                item.measurement5,
-                                item.measurement6,
-                                item.measurement7,
-                                item.measurement8,
-                                item.measurement9,
-                                item.measurement10,
-                                item.measurement11,
-                                item.measurement12,
-                                item.measurement13,
-                                item.measurement14,
-                                item.measurement15,
-                                item.measurement16,
-                                item.measurement17,
-                                item.measurement18,
-                                item.measurement19,
-                                item.measurement20
+                                item.meal[0].measurement1,
+                                item.meal[0].measurement2,
+                                item.meal[0].measurement3,
+                                item.meal[0].measurement4,
+                                item.meal[0].measurement5,
+                                item.meal[0].measurement6,
+                                item.meal[0].measurement7,
+                                item.meal[0].measurement8,
+                                item.meal[0].measurement9,
+                                item.meal[0].measurement10,
+                                item.meal[0].measurement11,
+                                item.meal[0].measurement12,
+                                item.meal[0].measurement13,
+                                item.meal[0].measurement14,
+                                item.meal[0].measurement15,
+                                item.meal[0].measurement16,
+                                item.meal[0].measurement17,
+                                item.meal[0].measurement18,
+                                item.meal[0].measurement19,
+                                item.meal[0].measurement20
                             ]}
-                            source={ item.source }
-                            dateModified={ item.dateModified }
+                            source={ item.meal[0].source }
+                            dateModified={ item.meal[0].dateModified }
                             key={ index }
                         />
                     )
