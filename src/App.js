@@ -10,7 +10,7 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      name: ""
+      name: "",
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -20,7 +20,7 @@ class App extends Component {
   handleSubmit = e => {
     e.preventDefault();
     axios
-      .post("http://localhost:8080/meals/:name", {
+      .post("http://localhost:8080/meals/:id", {
         name: this.state.name
       })
       .then(res => {

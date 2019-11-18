@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Meals from "./Meals";
+import axios from "axios";
 
 class Mealsdata extends Component {
     constructor(props) {
@@ -10,7 +11,7 @@ class Mealsdata extends Component {
     }
 
     componentDidMount() {
-        fetch("http://localhost:8080")
+        fetch("http://localhost:8080/")
             .then(res => res.json())
             .then(res => {
                 console.log(res, "Success");

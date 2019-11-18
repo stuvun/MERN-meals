@@ -10,6 +10,7 @@ class Singlemeal extends Component {
     }
 
     componentDidMount() {
+        
         fetch("http://localhost:8080/meals/Chicken Enchilada Casserole")
             .then(res => res.json())
             .then(res => {
