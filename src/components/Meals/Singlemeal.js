@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Meals from "./Meals";
+import axios from "axios";
 
 class Singlemeal extends Component {
     constructor(props) {
@@ -10,12 +11,11 @@ class Singlemeal extends Component {
     }
 
     componentDidMount() {
-        
-        fetch("http://localhost:8080/meals/Chicken Enchilada Casserole")
-            .then(res => res.json())
-            .then(res => {
+        axios.get("http://localhost:8080/meals/Chicken Enchilada Casserole")
+            .then((res, req) => {
+                console.log(req)
                 console.log(res, "Success");
-                this.setState({ mealArray: res })
+                this.setState({ mealArray: res.data })
             })
             .catch(err => {
                 console.log(err, "Something's wrong")

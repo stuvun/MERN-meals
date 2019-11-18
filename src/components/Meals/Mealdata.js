@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Meals from "./Meals";
-import axios from "axios";
 
 class Mealsdata extends Component {
     constructor(props) {
