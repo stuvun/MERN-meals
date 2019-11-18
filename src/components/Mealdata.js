@@ -26,11 +26,10 @@ class Mealdata extends Component {
 
         return (
             <div className="mealContainer">
-                { meals.map(item => {
-                    console.log(item.meal)
+                { meals.map((item, index) => {
                     return (
                         <Meal className="meal"
-                            key={ item.meal[0]._id }
+                            item={ item.meal[0]._id }
                             id={ item.meal[0].id }
                             name={ item.meal[0].mealName }
                             category={ item.meal[0].category }
@@ -85,6 +84,7 @@ class Mealdata extends Component {
                             ]}
                             source={ item.meal[0].source }
                             dateModified={ item.meal[0].dateModified }
+                            key={ index }
                         />
                     )
                 }) }
