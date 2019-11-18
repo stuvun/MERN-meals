@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import Meal from "./Meal";
+import Meals from "./Meals";
 
-class Mealdata extends Component {
+class Mealsdata extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            mealsArray: []
+            mealsArray: [],
         }
     }
 
@@ -28,7 +28,7 @@ class Mealdata extends Component {
             <div className="mealContainer">
                 { meals.map((item, index) => {
                     return (
-                        <Meal className="meal"
+                        <Meals className="meal"
                             item={ item.meal[0]._id }
                             id={ item.meal[0].id }
                             name={ item.meal[0].mealName }
@@ -93,4 +93,4 @@ class Mealdata extends Component {
     }
 }
 
-export default Mealdata;
+export default Mealsdata;

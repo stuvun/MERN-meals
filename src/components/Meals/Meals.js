@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import "./Meal.css";
+import "./Meals.css";
 
-class Meal extends Component {
+class Meals extends Component {
     render() {
         return (
             <div className="meal">
@@ -43,4 +43,4 @@ class Meal extends Component {
     }
 }
 
-export default Meal;
+export default Meals;

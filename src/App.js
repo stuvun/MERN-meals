@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import { Link, Route } from "react-router-dom"
 import axios from "axios";
 import "./App.css";
-import Mealdata from "./components/Meal/Mealdata";
 import Home from "./components/Home/Home";
+import Mealsdata from "./components/Meals/Mealdata";
+import Singlemeal from "./components/Meals/Singlemeal";
 
 class App extends Component {
   constructor(props) {
@@ -71,7 +72,10 @@ class App extends Component {
           exact component={ Home }>
         </Route>
         <Route path="/meals"
-          exact component={ Mealdata }>
+          exact component={ Mealsdata }>
+        </Route>
+        <Route path="/meals/:ids"
+          exact component={ Singlemeal }>
         </Route>
       </div>
     )
